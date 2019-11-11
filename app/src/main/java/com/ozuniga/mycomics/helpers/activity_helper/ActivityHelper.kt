@@ -106,6 +106,7 @@ open class ActivityHelper : AppCompatActivity(), IActivityHelper {
             fragmentTransaction?.addToBackStack(null)
         }
         lastFragment = fragment
+        fragmentTransaction?.setReorderingAllowed(true)
         fragmentTransaction?.addSharedElement(shareElement, transitionName)
         fragmentTransaction?.replace(idContainer, fragment, fragment.javaClass.simpleName)
                 ?.commitAllowingStateLoss()
