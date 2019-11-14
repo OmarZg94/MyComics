@@ -13,7 +13,7 @@ class Application : MultiDexApplication() {
     }
 
     companion object {
-        val TAG = "Infringements"
+        val TAG = "MyComics"
         private var instance: Application? = null
 
         fun getContext(): Context = instance!!.applicationContext
@@ -24,9 +24,9 @@ class Application : MultiDexApplication() {
         MultiDex.install(getContext())
         val builder = Picasso.Builder(this)
         builder.downloader(OkHttp3Downloader(this, Long.MAX_VALUE))
-        val built = builder.build()
+        /*val built = builder.build()
         built.setIndicatorsEnabled(true)
         built.isLoggingEnabled = true
-        Picasso.setSingletonInstance(built)
+        Picasso.setSingletonInstance(built)*/
     }
 }

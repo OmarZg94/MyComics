@@ -27,4 +27,20 @@ class MainActivity : ActivityHelper() {
             fm?.onConfigurationChanged(newConfig)
         }
     }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        if (Utils.isTablet()) {
+            val fm = supportFragmentManager.findFragmentById(R.id.main_container)
+            fm?.onSaveInstanceState(outState)
+        }
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        if (Utils.isTablet()) {
+            val fm = supportFragmentManager.findFragmentById(R.id.main_container)
+            fm?.onViewStateRestored(savedInstanceState)
+        }
+    }
 }
